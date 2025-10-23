@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - TechVision</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>TechVision</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Contact Us</h1>
+                <p class="hero-description">Get in touch with our team and let's discuss your project</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section class="contact-info">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Multiple ways to reach our team</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <h3>Phone</h3>
+                    <p>+1 (555) 123-4567</p>
+                    <p>Mon-Fri: 9AM-6PM EST</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email</h3>
+                    <p>info@techvision.com</p>
+                    <p>We respond within 24 hours</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Address</h3>
+                    <p>123 Tech Street</p>
+                    <p>San Francisco, CA 94105</p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Business Hours</h3>
+                    <p>Monday - Friday: 9AM - 6PM</p>
+                    <p>Saturday: 10AM - 4PM</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Send Us a Message</h2>
+                    <p>Fill out the form below and we'll get back to you as soon as possible</p>
+                </div>
+                <form class="contact-form" id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" name="service">
+                            <option value="">Select a service</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="mobile-development">Mobile Development</option>
+                            <option value="cloud-solutions">Cloud Solutions</option>
+                            <option value="ai-ml">AI & Machine Learning</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="consulting">Consulting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="budget">Project Budget</label>
+                        <select id="budget" name="budget">
+                            <option value="">Select budget range</option>
+                            <option value="under-5k">Under $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k-25k">$10,000 - $25,000</option>
+                            <option value="25k-50k">$25,000 - $50,000</option>
+                            <option value="over-50k">Over $50,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Project Details *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Tell us about your project requirements..." required></textarea>
+                    </div>
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <span class="checkmark"></span>
+                            Subscribe to our newsletter for tech insights and updates
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-large">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Find Us</h2>
+                <p class="section-subtitle">Visit our office or get directions</p>
+            </div>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Interactive Map</h3>
+                    <p>123 Tech Street, San Francisco, CA 94105</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-outline">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Locations Section -->
+    <section class="office-locations">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Offices</h2>
+                <p class="section-subtitle">Visit us at any of our locations worldwide</p>
+            </div>
+            <div class="locations-grid">
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>San Francisco</h3>
+                        <span class="location-type">Headquarters</span>
+                    </div>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Tech Street, San Francisco, CA 94105</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> sf@techvision.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM PST</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>New York</h3>
+                        <span class="location-type">Branch Office</span>
+                    </div>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 456 Innovation Ave, New York, NY 10001</p>
+                        <p><i class="fas fa-phone"></i> +1 (555) 987-6543</p>
+                        <p><i class="fas fa-envelope"></i> ny@techvision.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM EST</p>
+                    </div>
+                </div>
+                <div class="location-card">
+                    <div class="location-header">
+                        <h3>London</h3>
+                        <span class="location-type">International</span>
+                    </div>
+                    <div class="location-details">
+                        <p><i class="fas fa-map-marker-alt"></i> 789 Digital Lane, London, UK EC1A 4HD</p>
+                        <p><i class="fas fa-phone"></i> +44 20 7946 0958</p>
+                        <p><i class="fas fa-envelope"></i> london@techvision.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9AM-6PM GMT</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Hours Section -->
+    <section class="business-hours">
+        <div class="container">
+            <div class="hours-content">
+                <div class="hours-text">
+                    <h2>Business Hours</h2>
+                    <p>Our team is available during these hours to assist you with your technology needs.</p>
+                </div>
+                <div class="hours-schedule">
+                    <div class="schedule-item">
+                        <span class="day">Monday - Friday</span>
+                        <span class="time">9:00 AM - 6:00 PM</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="day">Saturday</span>
+                        <span class="time">10:00 AM - 4:00 PM</span>
+                    </div>
+                    <div class="schedule-item">
+                        <span class="day">Sunday</span>
+                        <span class="time">Closed</span>
+                    </div>
+                    <div class="schedule-item emergency">
+                        <span class="day">Emergency Support</span>
+                        <span class="time">24/7 Available</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-media">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Follow Us</h2>
+                <p class="section-subtitle">Stay connected with us on social media</p>
+            </div>
+            <div class="social-grid">
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Follow us for company updates and tech news</p>
+                    <a href="#" class="social-link">@TechVision</a>
+                </div>
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <h3>Twitter</h3>
+                    <p>Get real-time updates and industry insights</p>
+                    <a href="#" class="social-link">@TechVision</a>
+                </div>
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <h3>LinkedIn</h3>
+                    <p>Connect with our team and see our latest work</p>
+                    <a href="#" class="social-link">TechVision Company</a>
+                </div>
+                <div class="social-card">
+                    <div class="social-icon">
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>Behind-the-scenes content and team highlights</p>
+                    <a href="#" class="social-link">@TechVision</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Don't wait - let's discuss your technology needs today</p>
+                <div class="cta-buttons">
+                    <a href="tel:+15551234567" class="btn btn-primary">Call Now</a>
+                    <a href="mailto:info@techvision.com" class="btn btn-secondary">Email Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>TechVision</h3>
+                    <p>Transforming businesses through innovative technology solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Mobile Apps</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@techvision.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, City</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 TechVision. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
