@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "builds": [{ "src": "site/**", "use": "@vercel/static" }],
-  "routes": [
-    { "src": "/", "dest": "site/index.html" },
-    { "src": "/(.*)", "dest": "site/$1" }
-  ],
-  "cleanUrls": false,
-  "trailingSlash": false
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/site/index.html" },
+    { "source": "/(.*)", "destination": "/site/$1" }
+  ]
 }
