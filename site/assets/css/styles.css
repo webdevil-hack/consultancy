@@ -29,6 +29,21 @@ button,input,select,textarea{font:inherit}
   --header-h:72px;
 }
 
+/* Pure black theme variant */
+[data-theme="black"]{
+  --bg:#020617;                 /* near-black */
+  --bg-2:#00010a;
+  --surface:#0b1224;
+  --text:#eef2ff;
+  --muted:#a5b4cf;
+  --primary:#60a5fa;
+  --primary-2:#3b82f6;
+  --accent:#38bdf8;
+  --glass:rgba(15,23,42,.5);
+  --border:rgba(148,163,184,.18);
+  --shadow:0 12px 34px rgba(0,0,0,.6);
+}
+
 @font-face{
   font-family:'InterVar';
   font-weight:100 900;
@@ -78,6 +93,10 @@ h1,.h1{font-size:clamp(36px,5vw,56px); line-height:1.1; letter-spacing:-.02em}
   .nav-links{position:fixed; inset:var(--header-h) 16px auto 16px; display:grid; gap:14px; padding:16px; border:1px solid var(--border); background:rgba(13,21,48,.95); border-radius:14px; transform-origin:top right; transform:scale(.98); opacity:0; pointer-events:none; transition:.25s}
   .nav-links.open{opacity:1; transform:scale(1); pointer-events:auto}
 }
+
+/* theme toggle button */
+.theme-toggle{display:inline-grid; place-items:center; width:40px; height:40px; border-radius:10px; border:1px solid var(--border); background:var(--glass); color:var(--text)}
+.theme-toggle:hover{filter:brightness(1.1)}
 
 .btn{display:inline-flex; align-items:center; gap:10px; padding:12px 18px; border-radius:12px; border:1px solid var(--border); background:linear-gradient(180deg, rgba(147,197,253,.08), rgba(147,197,253,.04)); color:var(--text); text-decoration:none; box-shadow:inset 0 1px rgba(255,255,255,.12), var(--shadow); transition:transform .15s ease, box-shadow .2s}
 .btn:hover{transform:translateY(-1px); box-shadow:0 12px 24px rgba(2,6,23,.55)}
