@@ -1,0 +1,13 @@
+<svg width="160" height="48" viewBox="0 0 160 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="g" x1="0" y1="0" x2="160" y2="48" gradientUnits="userSpaceOnUse">
+    <stop stop-color="#6E72FC"/>
+    <stop offset="1" stop-color="#AD1DEB"/>
+  </linearGradient>
+</defs>
+<g>
+  <path d="M14 38 L28 10 L42 38 L34 38 L28 26 L22 38 Z" fill="url(#g)"/>
+  <path d="M50 14 L56 14 L62 30 L68 14 L74 14 L66 34 L58 34 Z" fill="#E7E9F3"/>
+  <text x="80" y="30" fill="#E7E9F3" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700">M. S. ENTERPRISES</text>
+</g>
+</svg>
