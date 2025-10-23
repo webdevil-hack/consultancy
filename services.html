@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - M.S. Enterprises</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <div class="logo-3d">
+                    <span class="logo-text">M.S.</span>
+                    <span class="logo-subtext">ENTERPRISES</span>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a href="services.html" class="nav-link active">Services</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="page-title">Our Services</h1>
+                <p class="page-subtitle">Comprehensive fintech solutions for your business</p>
+            </div>
+        </div>
+        <canvas id="services-canvas"></canvas>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services-intro" id="services-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2 class="section-title">Complete Business Solutions</h2>
+                    <p class="intro-description">
+                        At M.S. Enterprises, we offer a comprehensive suite of fintech services 
+                        designed to streamline your operations, ensure compliance, and drive growth. 
+                        Our expert team combines deep industry knowledge with cutting-edge technology 
+                        to deliver solutions that transform your business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accounting Services -->
+    <section class="service-category accounting-services" id="accounting-services">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h2 class="category-title">Accounting Services</h2>
+                <p class="category-subtitle">Professional accounting solutions for regulatory compliance and financial clarity</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3>Accounting & Ledger Reconciliation</h3>
+                    <p>Comprehensive bookkeeping and ledger management to ensure accurate financial records</p>
+                    <ul class="service-features">
+                        <li>Monthly reconciliation</li>
+                        <li>Error detection & correction</li>
+                        <li>Financial statement preparation</li>
+                        <li>Audit trail maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-invoice"></i>
+                    </div>
+                    <h3>GST Filing & Compliance Assistance</h3>
+                    <p>Expert GST compliance services to keep your business compliant with tax regulations</p>
+                    <ul class="service-features">
+                        <li>Monthly GST returns</li>
+                        <li>Input tax credit optimization</li>
+                        <li>Compliance monitoring</li>
+                        <li>GST audit support</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <h3>Income Tax Return (ITR) Filing</h3>
+                    <p>Professional ITR filing services for individuals and businesses</p>
+                    <ul class="service-features">
+                        <li>Individual ITR filing</li>
+                        <li>Corporate tax returns</li>
+                        <li>Tax planning consultation</li>
+                        <li>Refund processing</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Financial Analysis & Cash Flow Reports</h3>
+                    <p>Detailed financial analysis to help you make informed business decisions</p>
+                    <ul class="service-features">
+                        <li>Cash flow forecasting</li>
+                        <li>Profitability analysis</li>
+                        <li>Budget planning</li>
+                        <li>Financial KPI tracking</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Accounts Payable & Receivable Tracking</h3>
+                    <p>Efficient management of your business cash flow and vendor relationships</p>
+                    <ul class="service-features">
+                        <li>Invoice management</li>
+                        <li>Payment tracking</li>
+                        <li>Aging reports</li>
+                        <li>Collection strategies</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-piggy-bank"></i>
+                    </div>
+                    <h3>Tax Planning & Business Optimization</h3>
+                    <p>Strategic tax planning to minimize liabilities and optimize business structure</p>
+                    <ul class="service-features">
+                        <li>Tax strategy development</li>
+                        <li>Deduction optimization</li>
+                        <li>Business structure advice</li>
+                        <li>Compliance calendar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Services -->
+    <section class="service-category tech-services" id="tech-services">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h2 class="category-title">Technology Services</h2>
+                <p class="category-subtitle">Cutting-edge technology solutions to digitize and automate your business</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Responsive Website Design & Hosting</h3>
+                    <p>Modern, responsive websites that showcase your business professionally</p>
+                    <ul class="service-features">
+                        <li>Custom web design</li>
+                        <li>Mobile optimization</li>
+                        <li>SEO optimization</li>
+                        <li>Reliable hosting</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Blockchain System Setup & Automation</h3>
+                    <p>Implement blockchain technology for enhanced security and transparency</p>
+                    <ul class="service-features">
+                        <li>Smart contracts</li>
+                        <li>Cryptocurrency integration</li>
+                        <li>Decentralized systems</li>
+                        <li>Security protocols</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>Native and cross-platform mobile applications for iOS and Android</p>
+                    <ul class="service-features">
+                        <li>iOS & Android apps</li>
+                        <li>Cross-platform solutions</li>
+                        <li>UI/UX design</li>
+                        <li>App store deployment</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                    <h3>WhatsApp Bot Setup for Business Automation</h3>
+                    <p>Automated customer service and business processes through WhatsApp integration</p>
+                    <ul class="service-features">
+                        <li>Chatbot development</li>
+                        <li>Automated responses</li>
+                        <li>Customer support</li>
+                        <li>Integration with CRM</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Solutions & Migration</h3>
+                    <p>Secure cloud infrastructure and seamless migration services</p>
+                    <ul class="service-features">
+                        <li>Cloud architecture</li>
+                        <li>Data migration</li>
+                        <li>Backup solutions</li>
+                        <li>Scalable infrastructure</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Process Automation</h3>
+                    <p>Streamline business processes with intelligent automation solutions</p>
+                    <ul class="service-features">
+                        <li>Workflow automation</li>
+                        <li>RPA implementation</li>
+                        <li>API integrations</li>
+                        <li>Custom solutions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consulting Services -->
+    <section class="service-category consulting-services" id="consulting-services">
+        <div class="container">
+            <div class="category-header">
+                <div class="category-icon">
+                    <i class="fas fa-handshake"></i>
+                </div>
+                <h2 class="category-title">Consulting Services</h2>
+                <p class="category-subtitle">Strategic guidance and expert advice for business growth</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Digital Transformation Strategy</h3>
+                    <p>Comprehensive digital transformation roadmap for your business</p>
+                    <ul class="service-features">
+                        <li>Technology assessment</li>
+                        <li>Digital roadmap</li>
+                        <li>Change management</li>
+                        <li>ROI optimization</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Compliance & Risk Management</h3>
+                    <p>Ensure regulatory compliance and minimize business risks</p>
+                    <ul class="service-features">
+                        <li>Compliance audits</li>
+                        <li>Risk assessment</li>
+                        <li>Policy development</li>
+                        <li>Training programs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Process -->
+    <section class="service-process" id="service-process">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Service Process</h2>
+                <p class="section-subtitle">How we deliver exceptional results</p>
+            </div>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <div class="step-content">
+                        <h3>Discovery & Analysis</h3>
+                        <p>We analyze your current systems and identify opportunities for improvement</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <div class="step-content">
+                        <h3>Solution Design</h3>
+                        <p>Custom solution design tailored to your specific business requirements</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <div class="step-content">
+                        <h3>Implementation</h3>
+                        <p>Careful implementation with minimal disruption to your operations</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <div class="step-content">
+                        <h3>Training & Support</h3>
+                        <p>Comprehensive training and ongoing support to ensure success</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Plans -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Service Packages</h2>
+                <p class="section-subtitle">Choose the package that fits your needs</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Starter</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span class="amount">15,000</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Basic accounting services</li>
+                        <li>GST filing assistance</li>
+                        <li>Monthly financial reports</li>
+                        <li>Email support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Get Started</a>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <h3>Professional</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span class="amount">35,000</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Complete accounting suite</li>
+                        <li>Tax planning & filing</li>
+                        <li>Basic website development</li>
+                        <li>WhatsApp bot setup</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary">Most Popular</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <div class="price">
+                            <span class="currency">₹</span>
+                            <span class="amount">75,000</span>
+                            <span class="period">/month</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li>Full service suite</li>
+                        <li>Custom app development</li>
+                        <li>Blockchain integration</li>
+                        <li>24/7 dedicated support</li>
+                        <li>Consulting services</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-outline">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Let's discuss which services are right for your business needs</p>
+                <a href="contact.html" class="btn btn-primary">
+                    <span>Get a Quote</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <div class="logo-3d">
+                            <span class="logo-text">M.S.</span>
+                            <span class="logo-subtext">ENTERPRISES</span>
+                        </div>
+                    </div>
+                    <p>Dynamic fintech consultancy delivering comprehensive finance, accounting, and IT advisory solutions.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="services.html">Accounting</a></li>
+                        <li><a href="services.html">Technology</a></li>
+                        <li><a href="services.html">Consulting</a></li>
+                        <li><a href="services.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <div class="contact-info">
+                        <p><i class="fas fa-envelope"></i> info@msenterpises.com</p>
+                        <p><i class="fas fa-phone"></i> +91 XXX XXX XXXX</p>
+                        <p><i class="fas fa-map-marker-alt"></i> India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 M.S. Enterprises. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>
