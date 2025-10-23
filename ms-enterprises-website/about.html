@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - M.S. Enterprises</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .about-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 120px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate-sphere 20s infinite linear;
+        }
+
+        .team-member {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-avatar {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1rem;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .member-avatar::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(45deg);
+            transition: all 0.5s ease;
+            opacity: 0;
+        }
+
+        .team-member:hover .member-avatar::after {
+            top: -20%;
+            left: -20%;
+            opacity: 1;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-1);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 2rem 0;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+            padding-right: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+            padding-left: 3rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 2rem;
+            box-shadow: 0 0 0 5px rgba(99, 102, 241, 0.2);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(99, 102, 241, 0.1) 0%, transparent 70%);
+            transition: all 0.5s ease;
+        }
+
+        .value-card:hover::before {
+            top: -50%;
+            left: -50%;
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .value-card:hover .value-icon {
+            transform: rotateY(360deg);
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 60px !important;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-3d">
+                    <span class="logo-text">M.S.</span>
+                    <span class="logo-subtitle">ENTERPRISES</span>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link active">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1 class="hero-title text-3d" data-animate="fadeInUp">About M.S. Enterprises</h1>
+            <p class="hero-description" data-animate="fadeInUp">
+                Pioneering the future of fintech consultancy since 2025
+            </p>
+        </div>
+    </section>
+
+    <!-- Company Story Section -->
+    <section class="company-story" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-animate="fadeInUp">Our Story</h2>
+                <p class="section-subtitle" data-animate="fadeInUp">
+                    From vision to reality - transforming financial services
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-top: 3rem;">
+                <div data-animate="fadeInLeft">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--dark-color);">Founded with Purpose</h3>
+                    <p style="margin-bottom: 1.5rem; line-height: 1.8;">
+                        M.S. Enterprises was founded in 2025 with a clear vision: to bridge the gap between traditional financial services and cutting-edge technology. We recognized that businesses needed more than just accounting services – they needed strategic partners who could leverage technology to optimize their financial operations.
+                    </p>
+                    <p style="line-height: 1.8;">
+                        Our journey began with a simple belief: that every business, regardless of size, deserves access to enterprise-level financial technology and expertise. Today, we're proud to be at the forefront of the fintech revolution, helping businesses transform their operations and achieve unprecedented growth.
+                    </p>
+                </div>
+                <div class="flip-card" data-animate="fadeInRight" style="height: 400px;">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front" style="background: var(--gradient-1); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white;">
+                            <div style="text-align: center;">
+                                <i class="fas fa-chart-line" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                                <h3>Our Vision</h3>
+                                <p style="padding: 0 2rem;">Hover to see our mission</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back" style="background: var(--gradient-2); border-radius: 20px; display: flex; align-items: center; justify-content: center; color: white;">
+                            <div style="text-align: center; padding: 2rem;">
+                                <i class="fas fa-rocket" style="font-size: 4rem; margin-bottom: 1rem;"></i>
+                                <h3>Our Mission</h3>
+                                <p>To empower businesses with innovative fintech solutions that drive growth, ensure compliance, and create sustainable competitive advantages.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section class="milestones-section" style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Journey</h2>
+                <p class="section-subtitle">Key milestones in our growth story</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item" data-animate="fadeInUp">
+                    <div class="timeline-dot"></div>
+                    <h3>2025 - Foundation</h3>
+                    <p>M.S. Enterprises established with a vision to revolutionize fintech consultancy</p>
+                </div>
+                <div class="timeline-item" data-animate="fadeInUp">
+                    <div class="timeline-dot"></div>
+                    <h3>2025 - First Clients</h3>
+                    <p>Onboarded our first 10 clients, delivering exceptional results</p>
+                </div>
+                <div class="timeline-item" data-animate="fadeInUp">
+                    <div class="timeline-dot"></div>
+                    <h3>2025 - Tech Innovation</h3>
+                    <p>Launched proprietary automation tools for financial processes</p>
+                </div>
+                <div class="timeline-item" data-animate="fadeInUp">
+                    <div class="timeline-dot"></div>
+                    <h3>2025 - Expansion</h3>
+                    <p>Expanded services to include comprehensive tech solutions</p>
+                </div>
+                <div class="timeline-item" data-animate="fadeInUp">
+                    <div class="timeline-dot"></div>
+                    <h3>Present - Leading the Way</h3>
+                    <p>Serving 100+ clients with cutting-edge fintech solutions</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values Section -->
+    <section class="values-section" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Core Values</h2>
+                <p class="section-subtitle">The principles that guide everything we do</p>
+            </div>
+            <div class="values-grid">
+                <div class="value-card" data-animate="zoomIn">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Integrity</h3>
+                    <p>We maintain the highest ethical standards in all our dealings, ensuring transparency and trust in every interaction.</p>
+                </div>
+                <div class="value-card" data-animate="zoomIn" data-animate-delay="100">
+                    <div class="value-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Innovation</h3>
+                    <p>We constantly push boundaries, leveraging cutting-edge technology to deliver solutions that exceed expectations.</p>
+                </div>
+                <div class="value-card" data-animate="zoomIn" data-animate-delay="200">
+                    <div class="value-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Client-Centric</h3>
+                    <p>Your success is our success. We tailor our solutions to meet your unique needs and objectives.</p>
+                </div>
+                <div class="value-card" data-animate="zoomIn" data-animate-delay="300">
+                    <div class="value-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Excellence</h3>
+                    <p>We strive for excellence in everything we do, continuously improving our services and expertise.</p>
+                </div>
+                <div class="value-card" data-animate="zoomIn" data-animate-delay="400">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Partnership</h3>
+                    <p>We believe in building long-term partnerships, growing together with our clients.</p>
+                </div>
+                <div class="value-card" data-animate="zoomIn" data-animate-delay="500">
+                    <div class="value-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <h3>Security</h3>
+                    <p>We prioritize data security and confidentiality, implementing robust measures to protect your information.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section" style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meet Our Team</h2>
+                <p class="section-subtitle">The experts behind your success</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="team-member" data-animate="fadeInUp">
+                    <div class="member-avatar">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>John Smith</h3>
+                    <p style="color: var(--primary-color); margin-bottom: 1rem;">CEO & Founder</p>
+                    <p>Visionary leader with 15+ years in fintech innovation</p>
+                    <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member" data-animate="fadeInUp" data-animate-delay="100">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Sarah Johnson</h3>
+                    <p style="color: var(--primary-color); margin-bottom: 1rem;">Chief Technology Officer</p>
+                    <p>Tech expert specializing in financial automation solutions</p>
+                    <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member" data-animate="fadeInUp" data-animate-delay="200">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Michael Chen</h3>
+                    <p style="color: var(--primary-color); margin-bottom: 1rem;">Head of Finance</p>
+                    <p>CPA with expertise in regulatory compliance and tax optimization</p>
+                    <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member" data-animate="fadeInUp" data-animate-delay="300">
+                    <div class="member-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>Emily Rodriguez</h3>
+                    <p style="color: var(--primary-color); margin-bottom: 1rem;">Director of Operations</p>
+                    <p>Operations specialist ensuring seamless service delivery</p>
+                    <div class="social-links" style="justify-content: center; margin-top: 1rem;">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us-section" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Why Choose M.S. Enterprises?</h2>
+                <p class="section-subtitle">What sets us apart from the competition</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 3rem; margin-top: 3rem;">
+                <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 3rem; border-radius: 20px; position: relative; overflow: hidden;" data-animate="fadeInLeft">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-award" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Industry Expertise</h3>
+                        <p>Deep understanding of fintech trends and regulations, ensuring your business stays ahead of the curve.</p>
+                    </div>
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                </div>
+                <div style="background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%); color: white; padding: 3rem; border-radius: 20px; position: relative; overflow: hidden;" data-animate="fadeInUp">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-cogs" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Custom Solutions</h3>
+                        <p>Tailored strategies designed specifically for your business needs and growth objectives.</p>
+                    </div>
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                </div>
+                <div style="background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%); color: white; padding: 3rem; border-radius: 20px; position: relative; overflow: hidden;" data-animate="fadeInRight">
+                    <div style="position: relative; z-index: 2;">
+                        <i class="fas fa-headset" style="font-size: 3rem; margin-bottom: 1.5rem;"></i>
+                        <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">24/7 Support</h3>
+                        <p>Round-the-clock support ensuring your operations run smoothly without interruption.</p>
+                    </div>
+                    <div style="position: absolute; top: -50px; right: -50px; width: 200px; height: 200px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Business?</h2>
+                <p>Join the growing number of businesses that trust M.S. Enterprises</p>
+                <a href="contact.html" class="btn btn-large">Schedule a Consultation</a>
+            </div>
+            <div class="cta-3d-element">
+                <div class="floating-cards">
+                    <div class="card card-1"><i class="fas fa-users"></i></div>
+                    <div class="card card-2"><i class="fas fa-trophy"></i></div>
+                    <div class="card card-3"><i class="fas fa-star"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>M.S. Enterprises</h3>
+                    <p>Your trusted partner in fintech consultancy, delivering innovative solutions since 2025.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#accounting">Accounting Services</a></li>
+                        <li><a href="services.html#tech">Tech Solutions</a></li>
+                        <li><a href="services.html#consulting">Consulting</a></li>
+                        <li><a href="services.html#automation">Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Avenue, Suite 100</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@msenterprises.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 M.S. Enterprises. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+</body>
+</html>

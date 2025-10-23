@@ -1,0 +1,24 @@
+{
+  "name": "ms-enterprises-website",
+  "version": "1.0.0",
+  "description": "Modern 5-page website for M.S. Enterprises - Fintech Consultancy Services",
+  "main": "index.html",
+  "scripts": {
+    "start": "python -m http.server 8000",
+    "dev": "live-server --port=8000"
+  },
+  "keywords": [
+    "fintech",
+    "consultancy",
+    "accounting",
+    "technology",
+    "business",
+    "automation"
+  ],
+  "author": "M.S. Enterprises",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "dependencies": {}
+}

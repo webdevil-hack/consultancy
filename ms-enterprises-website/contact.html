@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - M.S. Enterprises</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .contact-hero {
+            background: linear-gradient(135deg, #10b981 0%, #3b82f6 100%);
+            padding: 120px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: white;
+            transform: skewY(-3deg);
+        }
+
+        .contact-form-section {
+            padding: 100px 0;
+            background: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+
+        .contact-form {
+            background: var(--light-color);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 20px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        .form-control.error {
+            border-color: #ef4444;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .contact-info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-1);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            background: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .office-hours {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2rem;
+            border-radius: 20px;
+            margin-top: 2rem;
+        }
+
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px 30px;
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+
+        .success-message {
+            background: #10b981;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideInDown 0.5s ease;
+        }
+
+        .error-message {
+            background: #ef4444;
+            color: white;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+            display: none;
+            animation: slideInDown 0.5s ease;
+        }
+
+        .quick-contact {
+            background: var(--gradient-2);
+            color: white;
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quick-contact::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotate-sphere 30s infinite linear;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .method-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .method-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .method-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .social-connect {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .social-card {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .social-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .social-card.facebook i { color: #1877f2; }
+        .social-card.twitter i { color: #1da1f2; }
+        .social-card.linkedin i { color: #0a66c2; }
+        .social-card.instagram i { color: #e4405f; }
+        .social-card.youtube i { color: #ff0000; }
+        .social-card.whatsapp i { color: #25d366; }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-3d">
+                    <span class="logo-text">M.S.</span>
+                    <span class="logo-subtitle">ENTERPRISES</span>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="container">
+            <h1 class="hero-title text-3d" data-animate="fadeInUp">Get In Touch</h1>
+            <p class="hero-description" data-animate="fadeInUp">
+                We're here to help transform your business. Reach out to start the conversation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-form-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Let's Start a Conversation</h2>
+                <p class="section-subtitle">Fill out the form below and we'll get back to you within 24 hours</p>
+            </div>
+            
+            <div class="contact-grid">
+                <div data-animate="fadeInLeft">
+                    <form class="contact-form" id="contactForm">
+                        <div class="success-message" id="successMessage">
+                            <i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully.
+                        </div>
+                        <div class="error-message" id="errorMessage">
+                            <i class="fas fa-exclamation-circle"></i> Oops! Something went wrong. Please try again.
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" class="form-control" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="company">Company Name</label>
+                            <input type="text" class="form-control" id="company" name="company">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="service">Service Interested In</label>
+                            <select class="form-control" id="service" name="service">
+                                <option value="">Select a service</option>
+                                <option value="accounting">Accounting Services</option>
+                                <option value="tax">Tax Services</option>
+                                <option value="web-development">Website Development</option>
+                                <option value="mobile-app">Mobile App Development</option>
+                                <option value="automation">Business Automation</option>
+                                <option value="consulting">Consulting</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <span>Send Message</span>
+                            <i class="fas fa-paper-plane" style="margin-left: 10px;"></i>
+                        </button>
+                    </form>
+                </div>
+                
+                <div data-animate="fadeInRight">
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Visit Our Office</h3>
+                            <p>123 Business Avenue, Suite 100<br>New York, NY 10001</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Call Us</h3>
+                            <p>Main: +1 (555) 123-4567<br>Support: +1 (555) 123-4568</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email Us</h3>
+                            <p>info@msenterprises.com<br>support@msenterprises.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="office-hours">
+                        <h3 style="margin-bottom: 1rem;">Office Hours</h3>
+                        <div class="hours-grid">
+                            <div>
+                                <strong>Monday - Friday</strong>
+                                <p>9:00 AM - 6:00 PM</p>
+                            </div>
+                            <div>
+                                <strong>Saturday</strong>
+                                <p>10:00 AM - 4:00 PM</p>
+                            </div>
+                            <div>
+                                <strong>Sunday</strong>
+                                <p>Closed</p>
+                            </div>
+                            <div>
+                                <strong>Support</strong>
+                                <p>24/7 Available</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Find Us Here</h2>
+                <p class="section-subtitle">Located in the heart of the business district</p>
+            </div>
+            <div class="map-container" data-animate="zoomIn">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="font-size: 4rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Interactive Map</h3>
+                    <p>123 Business Avenue, Suite 100, New York, NY 10001</p>
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-primary" style="margin-top: 1rem;">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+                <!-- In a real implementation, you would embed Google Maps here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact Methods -->
+    <section class="quick-contact">
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="section-header">
+                <h2 class="section-title" style="color: white;">Quick Contact Methods</h2>
+                <p class="section-subtitle" style="color: rgba(255,255,255,0.9);">Choose your preferred way to reach us</p>
+            </div>
+            <div class="contact-methods">
+                <div class="method-card" data-animate="fadeInUp">
+                    <i class="fas fa-comments method-icon"></i>
+                    <h3>Live Chat</h3>
+                    <p>Get instant answers from our support team</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Start Chat</a>
+                </div>
+                <div class="method-card" data-animate="fadeInUp" data-animate-delay="100">
+                    <i class="fas fa-calendar-check method-icon"></i>
+                    <h3>Schedule Meeting</h3>
+                    <p>Book a consultation at your convenience</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Book Now</a>
+                </div>
+                <div class="method-card" data-animate="fadeInUp" data-animate-delay="200">
+                    <i class="fas fa-headset method-icon"></i>
+                    <h3>Request Callback</h3>
+                    <p>We'll call you within 30 minutes</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Request Call</a>
+                </div>
+                <div class="method-card" data-animate="fadeInUp" data-animate-delay="300">
+                    <i class="fas fa-video method-icon"></i>
+                    <h3>Video Call</h3>
+                    <p>Face-to-face consultation online</p>
+                    <a href="#" class="btn btn-secondary" style="margin-top: 1rem;">Start Video</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Connect Section -->
+    <section class="social-connect">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Connect With Us</h2>
+                <p class="section-subtitle">Follow us on social media for updates and insights</p>
+            </div>
+            <div class="social-grid">
+                <div class="social-card facebook" data-animate="zoomIn">
+                    <i class="fab fa-facebook-f"></i>
+                    <h4>Facebook</h4>
+                    <p>@msenterprises</p>
+                </div>
+                <div class="social-card twitter" data-animate="zoomIn" data-animate-delay="100">
+                    <i class="fab fa-twitter"></i>
+                    <h4>Twitter</h4>
+                    <p>@ms_enterprises</p>
+                </div>
+                <div class="social-card linkedin" data-animate="zoomIn" data-animate-delay="200">
+                    <i class="fab fa-linkedin-in"></i>
+                    <h4>LinkedIn</h4>
+                    <p>M.S. Enterprises</p>
+                </div>
+                <div class="social-card instagram" data-animate="zoomIn" data-animate-delay="300">
+                    <i class="fab fa-instagram"></i>
+                    <h4>Instagram</h4>
+                    <p>@msenterprises</p>
+                </div>
+                <div class="social-card youtube" data-animate="zoomIn" data-animate-delay="400">
+                    <i class="fab fa-youtube"></i>
+                    <h4>YouTube</h4>
+                    <p>MS Enterprises</p>
+                </div>
+                <div class="social-card whatsapp" data-animate="zoomIn" data-animate-delay="500">
+                    <i class="fab fa-whatsapp"></i>
+                    <h4>WhatsApp</h4>
+                    <p>+1 555 123 4567</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contact FAQs</h2>
+                <p class="section-subtitle">Common questions about getting in touch</p>
+            </div>
+            <div style="max-width: 800px; margin: 3rem auto;">
+                <div class="faq-item" data-animate="fadeInUp">
+                    <div class="faq-question">
+                        <h3>What is the best way to reach you?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>For general inquiries, email is best. For urgent matters, please call our main line. For technical support, use our live chat feature for the fastest response.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-animate="fadeInUp" data-animate-delay="100">
+                    <div class="faq-question">
+                        <h3>How quickly will I receive a response?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We aim to respond to all inquiries within 24 hours. Priority support clients receive responses within 2-4 hours during business hours.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-animate="fadeInUp" data-animate-delay="200">
+                    <div class="faq-question">
+                        <h3>Do you offer on-site consultations?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, we offer on-site consultations for enterprise clients. Please contact us to schedule an appointment.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>M.S. Enterprises</h3>
+                    <p>Your trusted partner in fintech consultancy, delivering innovative solutions since 2025.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="services.html#accounting">Accounting Services</a></li>
+                        <li><a href="services.html#tech">Tech Solutions</a></li>
+                        <li><a href="services.html#consulting">Consulting</a></li>
+                        <li><a href="services.html#automation">Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Avenue, Suite 100</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@msenterprises.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 M.S. Enterprises. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // Contact Form Handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = this.querySelector('.submit-btn');
+            const successMsg = document.getElementById('successMessage');
+            const errorMsg = document.getElementById('errorMessage');
+            
+            // Reset messages
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+            
+            // Validate form
+            let isValid = true;
+            const requiredFields = this.querySelectorAll('[required]');
+            
+            requiredFields.forEach(field => {
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                }
+            });
+            
+            if (!isValid) {
+                errorMsg.style.display = 'block';
+                return;
+            }
+            
+            // Simulate form submission
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            setTimeout(() => {
+                // Reset form
+                this.reset();
+                
+                // Show success message
+                successMsg.style.display = 'block';
+                
+                // Reset button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<span>Send Message</span><i class="fas fa-paper-plane" style="margin-left: 10px;"></i>';
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMsg.style.display = 'none';
+                }, 5000);
+            }, 2000);
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Social card click handlers
+        document.querySelectorAll('.social-card').forEach(card => {
+            card.addEventListener('click', function() {
+                // In a real implementation, these would link to actual social media profiles
+                const platform = this.className.split(' ')[1];
+                console.log(`Opening ${platform} profile...`);
+            });
+        });
+    </script>
+</body>
+</html>

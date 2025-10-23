@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - M.S. Enterprises</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Page-specific styles */
+        .services-hero {
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            padding: 120px 0 80px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') bottom no-repeat;
+            background-size: cover;
+        }
+
+        .service-detail-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-detail-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-detail-card:hover::before {
+            left: 100%;
+        }
+
+        .service-detail-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-icon-large {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-1);
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 2rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            text-align: center;
+            position: relative;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary-color);
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .price-tag {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+
+        .price-tag span {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: var(--text-color);
+        }
+
+        .feature-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+
+        .feature-list li {
+            padding: 0.8rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li i {
+            color: var(--accent-color);
+        }
+
+        .process-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .process-number {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: var(--primary-color);
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .tech-stack-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .tech-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .tech-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .tech-item i {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 1rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--light-color);
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .tech-stack-grid {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <div class="logo-3d">
+                    <span class="logo-text">M.S.</span>
+                    <span class="logo-subtitle">ENTERPRISES</span>
+                </div>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="about.html" class="nav-link">About Us</a></li>
+                <li><a href="services.html" class="nav-link active">Services</a></li>
+                <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="container">
+            <h1 class="hero-title text-3d" data-animate="fadeInUp">Our Services</h1>
+            <p class="hero-description" data-animate="fadeInUp">
+                Comprehensive fintech solutions tailored to your business needs
+            </p>
+        </div>
+    </section>
+
+    <!-- Accounting Services Section -->
+    <section id="accounting" style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-animate="fadeInUp">Accounting Services</h2>
+                <p class="section-subtitle" data-animate="fadeInUp">
+                    Professional financial management and compliance solutions
+                </p>
+            </div>
+            
+            <div class="service-detail-card" data-animate="fadeInLeft">
+                <div class="service-icon-large">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <h3>Accounting & Ledger Reconciliation</h3>
+                <p>Our expert team ensures your books are accurate and up-to-date with comprehensive reconciliation services. We identify discrepancies, correct errors, and maintain clean financial records that provide clear insights into your business performance.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Daily, weekly, or monthly reconciliation</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Bank statement reconciliation</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Credit card reconciliation</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Inter-company reconciliation</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card" data-animate="fadeInRight">
+                <div class="service-icon-large">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <h3>GST Filing & Compliance Assistance</h3>
+                <p>Navigate the complexities of GST with our comprehensive compliance services. We ensure timely filing, accurate calculations, and full compliance with regulatory requirements, minimizing your risk of penalties.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> GSTR-1, GSTR-3B filing</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Input tax credit reconciliation</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> GST audit support</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Compliance advisory</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card" data-animate="fadeInLeft">
+                <div class="service-icon-large">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3>Income Tax Return (ITR) Filing</h3>
+                <p>Maximize your tax benefits while ensuring complete compliance. Our tax experts handle everything from basic individual returns to complex corporate filings, identifying all eligible deductions and credits.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Individual and business ITR filing</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Tax planning and optimization</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> TDS return filing</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Tax notice handling</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tech Services Section -->
+    <section id="tech" style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-animate="fadeInUp">Technology Services</h2>
+                <p class="section-subtitle" data-animate="fadeInUp">
+                    Cutting-edge digital solutions to transform your business
+                </p>
+            </div>
+            
+            <div class="service-detail-card" data-animate="fadeInRight">
+                <div class="service-icon-large">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <h3>Responsive Website Design & Hosting</h3>
+                <p>Create a powerful online presence with our modern, responsive websites. We design and develop custom solutions that not only look great but also drive conversions and enhance user experience across all devices.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Custom responsive design</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> E-commerce integration</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Secure hosting solutions</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> 24/7 technical support</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card" data-animate="fadeInLeft">
+                <div class="service-icon-large">
+                    <i class="fas fa-mobile-alt"></i>
+                </div>
+                <h3>Mobile App Development</h3>
+                <p>Extend your reach with custom mobile applications. Our team develops intuitive, feature-rich apps for iOS and Android that engage users and drive business growth through mobile channels.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Native iOS and Android apps</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Cross-platform development</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> App store optimization</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Ongoing maintenance</li>
+                </ul>
+            </div>
+
+            <div class="service-detail-card" data-animate="fadeInRight">
+                <div class="service-icon-large">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <h3>Business Process Automation</h3>
+                <p>Streamline operations and reduce costs with intelligent automation. We identify repetitive tasks and implement automated solutions that free your team to focus on strategic initiatives.</p>
+                <ul style="margin-top: 1rem; list-style: none;">
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Workflow automation</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> RPA implementation</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> API integrations</li>
+                    <li><i class="fas fa-check" style="color: var(--accent-color); margin-right: 0.5rem;"></i> Custom automation tools</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Process Section -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Service Process</h2>
+                <p class="section-subtitle">How we deliver excellence at every step</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="process-card" data-animate="zoomIn">
+                    <div class="process-number">1</div>
+                    <i class="fas fa-comments" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Discovery</h3>
+                    <p>We start by understanding your unique business needs, challenges, and objectives through detailed consultation.</p>
+                </div>
+                <div class="process-card" data-animate="zoomIn" data-animate-delay="100">
+                    <div class="process-number">2</div>
+                    <i class="fas fa-pencil-ruler" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Strategy</h3>
+                    <p>Our experts develop a customized strategy and roadmap tailored to achieve your specific goals.</p>
+                </div>
+                <div class="process-card" data-animate="zoomIn" data-animate-delay="200">
+                    <div class="process-number">3</div>
+                    <i class="fas fa-cogs" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Implementation</h3>
+                    <p>We execute the plan with precision, leveraging best practices and cutting-edge technology.</p>
+                </div>
+                <div class="process-card" data-animate="zoomIn" data-animate-delay="300">
+                    <div class="process-number">4</div>
+                    <i class="fas fa-chart-line" style="font-size: 3rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                    <h3>Optimization</h3>
+                    <p>Continuous monitoring and refinement ensure optimal performance and maximum ROI.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Flexible Pricing Plans</h2>
+                <p class="section-subtitle">Choose the perfect plan for your business needs</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+                <div class="pricing-card" data-animate="fadeInUp">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Starter</h3>
+                    <div class="price-tag">$499<span>/month</span></div>
+                    <p style="color: var(--text-color); margin-bottom: 2rem;">Perfect for small businesses and startups</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Basic Accounting Services</li>
+                        <li><i class="fas fa-check"></i> Monthly Reconciliation</li>
+                        <li><i class="fas fa-check"></i> GST Filing Support</li>
+                        <li><i class="fas fa-check"></i> Email Support</li>
+                        <li><i class="fas fa-times" style="color: #e5e7eb;"></i> Website Development</li>
+                        <li><i class="fas fa-times" style="color: #e5e7eb;"></i> Process Automation</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card featured" data-animate="fadeInUp" data-animate-delay="100">
+                    <div style="background: var(--primary-color); color: white; padding: 0.5rem; margin: -3rem -2rem 2rem; border-radius: 20px 20px 0 0;">
+                        <span style="font-weight: 600;">MOST POPULAR</span>
+                    </div>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Professional</h3>
+                    <div class="price-tag">$999<span>/month</span></div>
+                    <p style="color: var(--text-color); margin-bottom: 2rem;">Ideal for growing businesses</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Complete Accounting Suite</li>
+                        <li><i class="fas fa-check"></i> Weekly Reconciliation</li>
+                        <li><i class="fas fa-check"></i> Tax Planning & Filing</li>
+                        <li><i class="fas fa-check"></i> Priority Support</li>
+                        <li><i class="fas fa-check"></i> Basic Website</li>
+                        <li><i class="fas fa-check"></i> 2 Automation Workflows</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-primary" style="width: 100%;">Get Started</a>
+                </div>
+                
+                <div class="pricing-card" data-animate="fadeInUp" data-animate-delay="200">
+                    <h3 style="font-size: 1.5rem; margin-bottom: 1rem;">Enterprise</h3>
+                    <div class="price-tag">Custom</div>
+                    <p style="color: var(--text-color); margin-bottom: 2rem;">Tailored solutions for large organizations</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> Full Service Package</li>
+                        <li><i class="fas fa-check"></i> Real-time Reporting</li>
+                        <li><i class="fas fa-check"></i> Dedicated Account Manager</li>
+                        <li><i class="fas fa-check"></i> 24/7 Phone Support</li>
+                        <li><i class="fas fa-check"></i> Custom Development</li>
+                        <li><i class="fas fa-check"></i> Unlimited Automation</li>
+                    </ul>
+                    <a href="contact.html" class="btn btn-secondary" style="width: 100%;">Contact Sales</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section style="padding: 100px 0; background: white;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Our Technology Stack</h2>
+                <p class="section-subtitle">Leveraging the best tools and technologies</p>
+            </div>
+            <div class="tech-stack-grid">
+                <div class="tech-item" data-animate="fadeInUp">
+                    <i class="fab fa-react"></i>
+                    <h4>React</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="50">
+                    <i class="fab fa-node-js"></i>
+                    <h4>Node.js</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="100">
+                    <i class="fab fa-python"></i>
+                    <h4>Python</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="150">
+                    <i class="fab fa-aws"></i>
+                    <h4>AWS</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="200">
+                    <i class="fas fa-database"></i>
+                    <h4>MongoDB</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="250">
+                    <i class="fab fa-docker"></i>
+                    <h4>Docker</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="300">
+                    <i class="fas fa-shield-alt"></i>
+                    <h4>Security</h4>
+                </div>
+                <div class="tech-item" data-animate="fadeInUp" data-animate-delay="350">
+                    <i class="fas fa-cloud"></i>
+                    <h4>Cloud</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section style="padding: 100px 0; background: var(--light-color);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to common questions about our services</p>
+            </div>
+            <div style="max-width: 800px; margin: 3rem auto;">
+                <div class="faq-item" data-animate="fadeInUp">
+                    <div class="faq-question">
+                        <h3>How quickly can you implement your services?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Implementation timeline varies based on the service and complexity. Basic accounting services can be set up within 24-48 hours, while custom development projects typically take 2-8 weeks depending on requirements.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-animate="fadeInUp" data-animate-delay="100">
+                    <div class="faq-question">
+                        <h3>Do you offer customized solutions?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! We understand that every business is unique. Our team specializes in creating tailored solutions that align perfectly with your specific business needs and objectives.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-animate="fadeInUp" data-animate-delay="200">
+                    <div class="faq-question">
+                        <h3>What kind of support do you provide?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We offer comprehensive support including email, phone, and chat support. Professional and Enterprise plans include priority support with faster response times and dedicated account managers.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-animate="fadeInUp" data-animate-delay="300">
+                    <div class="faq-question">
+                        <h3>Can I upgrade or downgrade my plan?</h3>
+                        <i class="fas fa-chevron-down faq-icon"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes, you can change your plan at any time. Upgrades take effect immediately, while downgrades take effect at the start of the next billing cycle. No long-term contracts required.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Get Started?</h2>
+                <p>Transform your business with our comprehensive fintech solutions</p>
+                <a href="contact.html" class="btn btn-large">Schedule Free Consultation</a>
+            </div>
+            <div class="cta-3d-element">
+                <div class="floating-cards">
+                    <div class="card card-1"><i class="fas fa-rocket"></i></div>
+                    <div class="card card-2"><i class="fas fa-chart-line"></i></div>
+                    <div class="card card-3"><i class="fas fa-shield-alt"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>M.S. Enterprises</h3>
+                    <p>Your trusted partner in fintech consultancy, delivering innovative solutions since 2025.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#accounting">Accounting Services</a></li>
+                        <li><a href="#tech">Tech Solutions</a></li>
+                        <li><a href="#consulting">Consulting</a></li>
+                        <li><a href="#automation">Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Business Avenue, Suite 100</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@msenterprises.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 M.S. Enterprises. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/animations.js"></script>
+    <script>
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (item !== faqItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
