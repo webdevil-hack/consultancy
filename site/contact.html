@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact — M. S. Enterprises</title>
+  <meta name="description" content="Contact M. S. Enterprises for consultations, support, and proposals."/>
+  <link rel="stylesheet" href="assets/css/styles.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><span class="brand-logo"></span><span>M. S. Enterprises</span></a>
+      <nav aria-label="Primary">
+        <button class="mobile-toggle" aria-label="Toggle menu">≡</button>
+        <div class="nav-links">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="case-studies.html">Case Studies</a>
+          <a href="contact.html" aria-current="page" class="btn btn-primary">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. HERO -->
+    <section class="hero section">
+      <div class="canvas-wrap" aria-hidden="true"></div>
+      <div class="container">
+        <span class="tag">Get in touch</span>
+        <h1 class="mt-4 h1 gradient-text">Contact Us</h1>
+        <p class="lead mt-2">Tell us about your goals. We’ll reply within one business day.</p>
+      </div>
+    </section>
+
+    <!-- 2. CONTACT OPTIONS -->
+    <section class="section reveal">
+      <div class="container grid grid-3">
+        <div class="card"><div class="h3">Email</div><p class="subtle mt-2">hello@example.com</p></div>
+        <div class="card"><div class="h3">Phone</div><p class="subtle mt-2">+91 00000 00000</p></div>
+        <div class="card"><div class="h3">WhatsApp</div><p class="subtle mt-2">Available 9am–6pm IST</p></div>
+      </div>
+    </section>
+
+    <!-- 3. MAP -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-title"><div><div class="eyebrow">Location</div><div class="h2">Find us</div></div></div>
+        <div class="card" style="height:320px; background:rgba(255,255,255,.04);" aria-label="Map placeholder"></div>
+      </div>
+    </section>
+
+    <!-- 4. OFFICES -->
+    <section class="section reveal">
+      <div class="container grid grid-2">
+        <div class="card"><div class="h3">Head Office</div><p class="subtle mt-2">City, State — India</p></div>
+        <div class="card"><div class="h3">Remote</div><p class="subtle mt-2">Serving clients worldwide</p></div>
+      </div>
+    </section>
+
+    <!-- 5. CONTACT FORM -->
+    <section class="section reveal">
+      <div class="container grid grid-2">
+        <div>
+          <div class="h2">Send a message</div>
+          <p class="lead mt-2">We’ll prepare a tailored plan for you.</p>
+        </div>
+        <form class="form card" data-validate>
+          <div class="input"><label>Name</label><input required name="name" placeholder="Your name"/></div>
+          <div class="input"><label>Email</label><input required type="email" name="email" placeholder="you@company.com"/></div>
+          <div class="input"><label>Service</label>
+            <select name="service" required>
+              <option value="">Select</option>
+              <option>Accounting</option>
+              <option>Compliance</option>
+              <option>Automation</option>
+              <option>Website/App</option>
+            </select>
+          </div>
+          <div class="input"><label>Message</label><textarea required name="message" rows="5" placeholder="Tell us about your goals..."></textarea></div>
+          <button class="btn btn-primary" type="submit">Submit</button>
+          <small class="subtle">We respect your privacy.</small>
+        </form>
+      </div>
+    </section>
+
+    <!-- 6. SUPPORT -->
+    <section class="section reveal">
+      <div class="container grid grid-3">
+        <div class="card"><div class="h3">SLA</div><p class="subtle mt-2">Enterprise response times with clear escalation.</p></div>
+        <div class="card"><div class="h3">Security</div><p class="subtle mt-2">Least privilege and encrypted data at rest.</p></div>
+        <div class="card"><div class="h3">Continuity</div><p class="subtle mt-2">Regular backups and versioning.</p></div>
+      </div>
+    </section>
+
+    <!-- 7. FAQ -->
+    <section class="section reveal">
+      <div class="container">
+        <div class="section-title"><div><div class="eyebrow">Help</div><div class="h2">FAQs</div></div></div>
+        <div class="faq">
+          <details><summary>When will you reply?</summary><p class="subtle">Within one business day.</p></details>
+          <details><summary>Can we sign online?</summary><p class="subtle">Yes, we use e-sign workflows.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CTA -->
+    <section class="section reveal center">
+      <div class="container center">
+        <div class="card" style="text-align:center; max-width:860px">
+          <div class="h2">Let’s get your roadmap started</div>
+          <a href="mailto:hello@example.com" class="btn btn-primary mt-4">Email us</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container cols">
+      <div class="brand"><span class="brand-logo"></span><strong>M. S. Enterprises</strong></div>
+      <div>
+        <strong>Company</strong>
+        <div class="mt-2"><a href="about.html">About</a></div>
+        <div><a href="case-studies.html">Case Studies</a></div>
+        <div><a href="contact.html" aria-current="page">Contact</a></div>
+      </div>
+      <div>
+        <strong>Services</strong>
+        <div class="mt-2"><a href="services.html#accounting">Accounting</a></div>
+        <div><a href="services.html#tech">Tech</a></div>
+      </div>
+      <div>
+        <strong>Legal</strong>
+        <div class="mt-2"><a href="#">Privacy</a></div>
+        <div><a href="#">Terms</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script defer src="assets/js/main.js"></script>
+  <script defer src="assets/js/three-hero.js"></script>
+</body>
+</html>
